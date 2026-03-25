@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://www.yourdomain.com",
+  site: "https://www.sweetcarolineseaport.com",
   output: "static",
   vite: {
     plugins: [tailwindcss()],

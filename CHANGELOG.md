@@ -13,8 +13,6 @@ Tailwind CSS Intellisense extension
 2/23/26 - Created Layout
 Added:
 TailwindCSS
-Prettier
-esLint
 astrojs/sitemap
 
 Button.astro
