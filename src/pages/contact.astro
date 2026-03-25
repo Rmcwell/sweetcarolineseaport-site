@@ -14,17 +14,33 @@ import ContactForm from "../components/ContactForm.astro";
   />
 
   <Section background="white">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+        <p class="font-body text-lg text-brand-secondary/80 leading-relaxed mb-8">
+          Once you're familiar with our information and policies, please contact us using the form below. 
+          Just let us know your <span class="font-semibold text-brand-primary">desired date range</span> 
+          and your <span class="font-semibold text-brand-primary">preferred property</span> (First or Second Floor), 
+          and we'll contact you to complete the process.
+        </p>
+
+        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent shadow-sm">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+    <circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>
+  </svg>
+  <p class="font-body text-sm font-semibold uppercase tracking-wide">
+    Important: Sweet Caroline Seaport requires a 28-night minimum stay.
+  </p>
+</div>
+      </div>
+
     <div class="grid lg:grid-cols-12 gap-16 max-w-5xl mx-auto">
         <div class="lg:col-span-7">
             <ContactForm />
         </div>
 
-        <!-- Contact Details -->
+      <!-- Contact Details -->
       <div class="lg:col-span-5">
         <h2 class="font-headers text-3xl mb-6">Contact Details</h2>
- 
         <div class="space-y-6 mb-10">
- 
           <!-- Email -->
           <a href="mailto:info@sweetcarolineseaport.com" class="flex items-start gap-4 group">
             <div class="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 mt-0.5">

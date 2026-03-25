@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import beachImage from "../assets/beach.webp"
+import frontRightDoor from "../assets/frontRightDoor.webp"
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Section from "../components/UI/Section.astro";
@@ -196,7 +196,7 @@ const iconPaths: Record<string, string> = {
       <div class="grid sm:grid-cols-3 gap-8 mb-12 text-center border-y border-stone-100 py-10 px-4">
         <div class="space-y-2">
           <p class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Parking</p>
-          <p class="text-sm text-brand-secondary/80 leading-relaxed">1 Free pass provided for nearby garage</p>
+          <p class="text-sm text-brand-secondary/80 leading-relaxed">1 free pass per unit provided for nearby garage</p>
         </div>
         <div class="space-y-2 border-x border-stone-100 px-4">
           <p class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Guest Access</p>
@@ -209,10 +209,10 @@ const iconPaths: Record<string, string> = {
       </div>
 
       <div class="grid sm:grid-cols-2 gap-6">
-        <div class="bg-brand-primary/5 rounded-xl p-6 border border-brand-primary/10 shadow-lg">
+        <div class="bg-brand-secondary rounded-xl p-6 border border-brand-secondary shadow-lg">
           <p class="text-[10px] tracking-[0.3em] uppercase text-brand-accent mb-3 font-bold">Policy</p>
-          <h3 class="font-headers text-lg mb-4 text-brand-secondary">Cancellation</h3>
-          <ul class="text-xs space-y-3 text-brand-secondary/80">
+          <h3 class="font-headers text-lg mb-4 text-white">Cancellation</h3>
+          <ul class="text-xs space-y-3 text-white">
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
               <span><strong>4 Weeks:</strong> Full Refund</span>
@@ -225,12 +225,12 @@ const iconPaths: Record<string, string> = {
           </ul>
         </div>
 
-        <div class="bg-brand-primary/5 rounded-xl p-6 flex flex-col justify-between border border-brand-primary/10 shadow-lg">
+        <div class="bg-brand-secondary rounded-xl p-6 flex flex-col justify-between border border-brand-primary/10 shadow-lg">
           <div>
             <p class="text-[9px] uppercase tracking-widest text-brand-accent font-bold mb-1">On-Site Concierge</p>
-            <h3 class="font-headers text-2xl">Bopha</h3>
+            <h3 class="font-headers text-2xl text-white">Bopha</h3>
           </div>
-          <p class="text-xs leading-relaxed mt-4">
+          <p class="text-xs leading-relaxed mt-4 text-white">
             Available for check-in assistance and local Key West recommendations.
           </p>
         </div>
@@ -239,7 +239,7 @@ const iconPaths: Record<string, string> = {
 
     <div class="reveal-card opacity-0 translate-y-5 transition-all duration-700 delay-200 relative lg:sticky lg:top-32">
       <Image 
-          src={beachImage} 
+          src={frontRightDoor} 
           alt="Sweet Caroline Seaport Entry" 
           width={800}
           height={1000}
@@ -293,7 +293,12 @@ const iconPaths: Record<string, string> = {
   <Section background="light">
     <SectionHeader title="Amenities" tagline="What We Offer">
       <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
-        Everything you need for a comfortable, luxurious stay. 
+        Sweet Caroline Seaport offers you everything you need, and more, to have a comfortable, luxurious stay in Key West.  
+        To take your experience to the next level, our Concierge affords an astonishing array of personalized services. 
+        Upon your arrival, our concierge, Bopha, will introduce you to the very best Key West has to offer.
+      </p>
+      <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
+        With our local knowledge, you can create a true connection with our island community, and make your stay a once-in-a-lifetime experience. 
       </p>
     </SectionHeader>
 
