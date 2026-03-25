@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import beachImage from "../assets/beach.jpg"
+import beachImage from "../assets/beach.webp"
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Section from "../components/UI/Section.astro";
@@ -167,7 +167,7 @@ const iconPaths: Record<string, string> = {
       <div class="pb-6 text-center">
         <div class="inline-block relative">
            <p class="text-2xl font-headers text-brand-secondary relative z-10">28-Night Minimum Stay</p>
-           <div class="absolute -bottom-1 left-0 w-full h-3 bg-brand-accent/20 -z-0"></div>
+           <div class="absolute -bottom-1 left-0 w-full h-3 bg-brand-accent/20 z-0"></div>
         </div>
         <p class="text-[10px] uppercase tracking-[0.3em] text-brand-secondary/40 font-bold mt-4">
           No Hidden Costs or Booking Fees
@@ -243,7 +243,7 @@ const iconPaths: Record<string, string> = {
           alt="Sweet Caroline Seaport Entry" 
           width={800}
           height={1000}
-          class="rounded-lg shadow-2xl w-full aspect-[4/5] object-cover"
+          class="rounded-lg shadow-2xl w-full aspect-4/5 object-cover"
       />
     </div>
   </div>

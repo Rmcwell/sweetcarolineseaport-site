@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Section from "../components/UI/Section.astro";
+---
+
+<Layout title="Gallery — Sweet Caroline Seaport" description="View photos of our luxury 1st and 2nd floor units in Key West.">
+
+  <PageHero 
+    title="Property Gallery" 
+    subtitle="Explore the meticulously renovated interiors and tropical outdoor spaces of our historic seaport home."
+    tagline="The View"
+  />
+
+  <Section background="white">
+    <div class="flex justify-center mb-12">
+      <div class="inline-flex rounded-lg bg-stone-100 p-1.5 gap-1 border border-stone-200" role="tablist">
+        <button
+          id="tab-first"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-first"
+          data-target="panel-first"
+          class="tab-btn px-6 py-2.5 rounded-md text-xs uppercase tracking-widest font-bold transition-all duration-300 bg-brand-secondary text-white shadow-md cursor-pointer"
+        >
+          1st Floor · 3BR
+        </button>
+        <button
+          id="tab-second"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-second"
+          data-target="panel-second"
+          class="tab-btn px-6 py-2.5 rounded-md text-xs uppercase tracking-widest font-bold transition-all duration-300 text-stone-500 hover:text-brand-secondary cursor-pointer"
+        >
+          2nd Floor · 2BR
+        </button>
+      </div>
+    </div>
+
+    <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" class="tab-panel">
+        
+    </div>
+
+    <div id="panel-second" role="tabpanel" aria-labelledby="tab-second" class="tab-panel hidden">
+        
+    </div>
+
+  </Section>
+</Layout>
+
+
+<script>
+    // Tab Switching Logic
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
+  const panels = document.querySelectorAll<HTMLElement>(".tab-panel");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => {
+        t.setAttribute("aria-selected", "false");
+        t.classList.remove("bg-brand-secondary", "text-white", "shadow-md");
+        t.classList.add("text-stone-500");
+      });
+      panels.forEach((p) => p.classList.add("hidden"));
+
+      tab.setAttribute("aria-selected", "true");
+      tab.classList.add("bg-brand-secondary", "text-white", "shadow-md");
+      tab.classList.remove("text-stone-500");
+
+      const targetId = tab.dataset.target!;
+      document.getElementById(targetId)?.classList.remove("hidden");
+    });
+  });
+</script>

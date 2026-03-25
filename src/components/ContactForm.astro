@@ -1,16 +1,14 @@
 ---
 //Update this variable with your actual Basin form ID for the form to work correctly.
-const basinURL = "https://usebasin.com/f/BASIN_ID_HERE";
+const basinURL = "https://usebasin.com/f/3519717384b0";
 
 //Update this variable with your actual Cloudflare Turnstile site key for the widget to work correctly.
 //Also check the index to ensure the script tag for the Cloudflare Turnstile widget is included in the head of your layout.
-const turnstileSiteKey = "0x4AAAAAACtwydU4s9rO0pbJ";
+const turnstileSiteKey = "0x4AAAAAACv6SgHUpnc63a6N";
 ---
 
-<section class="flex min-h-screen items-center justify-center bg-gray-50 p-6">
   <div class="w-full max-w-2xl rounded-2xl border border-gray-100 bg-white p-8 shadow-sm">
     <form id="contact-form" action={basinURL} method="POST" class="space-y-5">
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
         <div>
           <label for="name" class="mb-1 block text-sm font-medium text-gray-700">
             Full Name <span class="text-red-500">*</span>
@@ -21,24 +19,9 @@ const turnstileSiteKey = "0x4AAAAAACtwydU4s9rO0pbJ";
             name="name"
             placeholder="John Doe"
             required
-            class="contact-input focus:border-brand-secondary focus:ring-brand-secondary w-full rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
+            class="contact-input focus:border-brand-primary focus:ring-brand-primary w-full rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
           />
         </div>
-
-        <div>
-          <label for="name" class="mb-1 block text-sm font-medium text-gray-700">
-            Company (optional) <span class="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            placeholder="Company Name, LLC"
-            required
-            class="contact-input focus:border-brand-secondary focus:ring-brand-secondary w-full rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
-          />
-        </div>
-      </div>
 
       <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
         <div>
@@ -51,7 +34,7 @@ const turnstileSiteKey = "0x4AAAAAACtwydU4s9rO0pbJ";
             name="email"
             placeholder="you@example.com"
             required
-            class="contact-input focus:border-brand-secondary focus:ring-brand-secondary w-full rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
+            class="contact-input focus:border-brand-primary focus:ring-brand-primary w-full rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
           />
         </div>
 
@@ -64,7 +47,7 @@ const turnstileSiteKey = "0x4AAAAAACtwydU4s9rO0pbJ";
             id="phone"
             name="phone"
             placeholder="(555) 000-0000"
-            class="contact-input focus:border-brand-secondary focus:ring-brand-secondary w-full rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
+            class="contact-input focus:border-brand-primary focus:ring-brand-primary w-full rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
           />
         </div>
       </div>
@@ -79,7 +62,7 @@ const turnstileSiteKey = "0x4AAAAAACtwydU4s9rO0pbJ";
           rows="4"
           placeholder="How can we help?"
           required
-          class="contact-input focus:border-brand-secondary focus:ring-brand-secondary w-full resize-none rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
+          class="contact-input focus:border-brand-primary focus:ring-brand-primary w-full resize-none rounded-lg border border-gray-300 px-4 py-2 transition-all outline-none"
         ></textarea>
       </div>
 
@@ -112,7 +95,6 @@ const turnstileSiteKey = "0x4AAAAAACtwydU4s9rO0pbJ";
       </button>
     </form>
   </div>
-</section>
 
 <script>
   declare global {

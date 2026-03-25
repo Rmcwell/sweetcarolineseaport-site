@@ -1,0 +1,274 @@
+---
+import { Image } from "astro:assets";
+
+// General Assets
+import fence from "../assets/fence.webp";
+import frontChairs from "../assets/frontChairs.webp";
+import frontDoors from "../assets/frontDoors.webp";
+import backyard from "../assets/backyard.webp";
+
+// 1st Floor Assets
+import firstBathroom from "../assets/1stFloor/firstBathroom.webp";
+import firstHallway from "../assets/1stFloor/firstHallway.webp";
+import firstLivingRoom from "../assets/1stFloor/firstLivingRoom.webp";
+import firstLivingRoom2 from "../assets/1stFloor/firstLivingRoom2.webp";
+import firstKitchen from "../assets/1stFloor/firstKitchen.webp";
+import firstMaster from "../assets/1stFloor/firstMaster.webp";
+import firstQueen from "../assets/1stFloor/firstQueen.webp";
+import firstTwin from "../assets/1stFloor/firstTwin.webp";
+
+// 2nd Floor Assets
+import secondBalcony from "../assets/2ndFloor/secondBalcony.webp";
+import secondKitchen from "../assets/2ndFloor/secondKitchen.webp";
+import secondKitchenLivingRoom from "../assets/2ndFloor/secondKitchenLivingRoom.webp";
+import secondLivingRoom from "../assets/2ndFloor/secondLivingRoom.webp";
+import secondMaster from "../assets/2ndFloor/secondMaster.webp";
+import secondStairs from "../assets/2ndFloor/secondStairs.webp";
+import secondTwin from "../assets/2ndFloor/secondTwin.webp";
+import secondTwin2 from "../assets/2ndFloor/secondTwin2.webp";
+
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Section from "../components/UI/Section.astro";
+import CTA from "../components/CTA.astro";
+
+const firstFloorImages = [
+  { src: firstLivingRoom, alt: "1st Floor — Spacious Living Area" },
+  { src: fence, alt: "Historic Seaport Exterior" },
+  { src: frontChairs, alt: "Cozy Front Porch Seating" },
+  { src: frontDoors, alt: "Historic Entryway" },
+  { src: backyard, alt: "Tropical Backyard Oasis" },
+  { src: firstMaster, alt: "1st Floor — Master Suite" },
+  { src: firstKitchen, alt: "1st Floor — Gourmet Kitchen" },
+  { src: firstHallway, alt: "1st Floor — Interior Hallway" },
+  { src: firstQueen, alt: "1st Floor — Queen Guest Room" },
+  { src: firstTwin, alt: "1st Floor — Twin Guest Room" },
+  { src: firstLivingRoom2, alt: "1st Floor — Living Area View 2" },
+  { src: firstBathroom, alt: "1st Floor — Modern Bathroom" }
+];
+
+const secondFloorImages = [
+  { src: secondKitchenLivingRoom, alt: "2nd Floor — Open Concept Living" },
+  { src: fence, alt: "Historic Seaport Exterior" },
+  { src: frontChairs, alt: "Cozy Front Porch Seating" },
+  { src: frontDoors, alt: "Historic Entryway" },
+  { src: backyard, alt: "Tropical Backyard Oasis" },
+  { src: secondMaster, alt: "2nd Floor — Master Bedroom" },
+  { src: secondBalcony, alt: "2nd Floor — Private Balcony" },
+  { src: secondStairs, alt: "2nd Floor — Access Stairway" },
+  { src: secondLivingRoom, alt: "2nd Floor — Guest Living Space" },
+  { src: secondKitchen, alt: "2nd Floor — Kitchenette" },
+  { src: secondTwin, alt: "2nd Floor — Twin Suite" },
+  { src: secondTwin2, alt: "2nd Floor — Guest Room" },
+];
+
+const spans = [
+  "md:col-span-2 md:row-span-2 col-span-2 row-span-2", // Large Feature
+  "col-span-1 row-span-1", 
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-2", // Vertical Span
+];
+---
+
+<Layout title="Gallery — Sweet Caroline Seaport" description="View photos of our luxury 1st and 2nd floor units in Key West.">
+
+  <PageHero 
+    title="Property Gallery" 
+    subtitle="Explore the renovated interiors and tropical outdoor spaces of our historic seaport home."
+    tagline="The View"
+  />
+
+  <Section background="white">
+    <div class="flex justify-center mb-12">
+      <div class="inline-flex rounded-lg bg-stone-100 p-1.5 gap-1 border border-stone-200" role="tablist">
+        <button
+          id="tab-first"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-first"
+          data-target="panel-first"
+          class="tab-btn px-6 py-2.5 rounded-md text-xs uppercase tracking-widest font-bold transition-all duration-300 bg-brand-secondary text-white shadow-md cursor-pointer"
+        >
+          1st Floor · 3BR
+        </button>
+        <button
+          id="tab-second"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-second"
+          data-target="panel-second"
+          class="tab-btn px-6 py-2.5 rounded-md text-xs uppercase tracking-widest font-bold transition-all duration-300 text-stone-500 hover:text-brand-secondary cursor-pointer"
+        >
+          2nd Floor · 2BR
+        </button>
+      </div>
+    </div>
+
+    <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" class="tab-panel">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {firstFloorImages.map((img, i) => {
+          const isLarge = spans[i]?.includes('md:col-span-2');
+          const isVertical = spans[i]?.includes('row-span-2') && !isLarge;
+          
+          return (
+            <div
+              class={`
+                ${spans[i] ?? "col-span-1"} 
+                ${isVertical ? '' : 'aspect-3/2'} 
+                rounded-xl overflow-hidden cursor-pointer group relative gallery-item border border-stone-100 shadow-sm
+              `}
+              data-src={img.src.src}
+              data-alt={img.alt}
+              style={`animation-delay: ${i * 80}ms`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={isLarge ? 1200 : 800}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-brand-secondary/0 group-hover:bg-brand-secondary/30 transition-colors duration-500 flex items-center justify-center">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <div id="panel-second" role="tabpanel" aria-labelledby="tab-second" class="tab-panel hidden">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {secondFloorImages.map((img, i) => {
+          const isLarge = spans[i]?.includes('md:col-span-2');
+          const isVertical = spans[i]?.includes('row-span-2') && !isLarge;
+          
+          return (
+            <div
+              class={`
+                ${spans[i] ?? "col-span-1"} 
+                ${isVertical ? '' : 'aspect-3/2'} 
+                rounded-xl overflow-hidden cursor-pointer group relative gallery-item border border-stone-100 shadow-sm
+              `}
+              data-src={img.src.src}
+              data-alt={img.alt}
+              style={`animation-delay: ${i * 80}ms`}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={isLarge ? 1200 : 800}
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-brand-secondary/0 group-hover:bg-brand-secondary/30 transition-colors duration-500 flex items-center justify-center">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </Section>
+
+  <CTA />
+
+  <div id="lightbox" class="fixed inset-0 z-100 bg-white/50 backdrop-blur-md items-center justify-center p-4 hidden" role="dialog" aria-modal="true">
+  <button id="lightbox-close" class="absolute top-6 right-6 text-stone-400 hover:text-brand-secondary transition-colors p-2 z-110" aria-label="Close lightbox">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+
+  <div class="relative max-w-5xl w-full flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-xl transition-all duration-300 scale-95 opacity-0" />
+      
+      <div class="absolute bottom-0 left-0 right-0 bg-white/70 backdrop-blur-sm py-4 rounded-b-lg">
+        <p id="lightbox-caption" class="text-brand-secondary text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-center"></p>
+      </div>
+  </div>
+</div>
+</Layout>
+
+<script>
+  // Tab Switching Logic
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
+  const panels = document.querySelectorAll<HTMLElement>(".tab-panel");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => {
+        t.setAttribute("aria-selected", "false");
+        t.classList.remove("bg-brand-secondary", "text-white", "shadow-md");
+        t.classList.add("text-stone-500");
+      });
+      panels.forEach((p) => p.classList.add("hidden"));
+
+      tab.setAttribute("aria-selected", "true");
+      tab.classList.add("bg-brand-secondary", "text-white", "shadow-md");
+      tab.classList.remove("text-stone-500");
+
+      const targetId = tab.dataset.target!;
+      document.getElementById(targetId)?.classList.remove("hidden");
+    });
+  });
+
+  // Lightbox Logic
+  const lightbox = document.getElementById("lightbox")!;
+  const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement;
+  const lightboxCap = document.getElementById("lightbox-caption")!;
+  const lightboxClose = document.getElementById("lightbox-close")!;
+
+  function openLightbox(src: string, alt: string) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightboxCap.textContent = alt;
+    lightbox.classList.remove("hidden");
+    lightbox.classList.add("flex");
+    
+    setTimeout(() => {
+      lightboxImg.classList.remove("scale-95", "opacity-0");
+      lightboxImg.classList.add("scale-100", "opacity-100");
+    }, 10);
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightboxImg.classList.add("scale-95", "opacity-0");
+    setTimeout(() => {
+      lightbox.classList.add("hidden");
+      lightbox.classList.remove("flex");
+      document.body.style.overflow = "";
+    }, 300);
+  }
+
+  document.addEventListener("click", (e) => {
+    const item = (e.target as Element).closest<HTMLElement>(".gallery-item");
+    if (item) openLightbox(item.dataset.src!, item.dataset.alt!);
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+</script>
+
+<style>
+  .gallery-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tab-panel:not(.hidden) .gallery-item {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+</style>
