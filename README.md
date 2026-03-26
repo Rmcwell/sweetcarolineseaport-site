@@ -6,18 +6,22 @@ ESLint
 Prettier
 Tailwind CSS Intellisense
 
-Files that need changing for customizations
+THINGS THAT NEED CHANGING FOR EACH NEW WEBSITE
 
 styles/global.css
 Brand colors
 Font
-
-layouts/Layout.astro
-Title
-Description
 
 astro.config.mjs
 site
 
 wrangler.jsonc
 name - make it the same as the repo name
+
+SEO.astro
+brandName
+homepageTagline
+
+ContactForm.astro
+basinURL
+turnstileSiteKey

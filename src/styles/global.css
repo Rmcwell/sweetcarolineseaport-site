@@ -2,6 +2,7 @@
 @import "tailwindcss";
 
 @theme {
+    /* UPDATE COLORS AND FONT FOR EVERY NEW WEBSITE */
   --color-brand-primary: #93d2c3;
   --color-brand-secondary: #00295c;
   --color-brand-accent: #f59e0b;
