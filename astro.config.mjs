@@ -5,6 +5,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   // UPDATE THIS FOR EVERY NEW CLIENT
   site: "https://www.sweetcarolineseaport.com",
+  trailingSlash: 'always',
   output: "static",
   vite: {
     plugins: [tailwindcss()],

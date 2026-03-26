@@ -2,8 +2,6 @@ This is the starter template for all Astro websites for Dockside Web Solutions, 
 
 Extensions:
 Astro
-ESLint
-Prettier
 Tailwind CSS Intellisense
 
 THINGS THAT NEED CHANGING FOR EACH NEW WEBSITE
@@ -25,3 +23,10 @@ homepageTagline
 ContactForm.astro
 basinURL
 turnstileSiteKey
+
+IMAGES NOT THOUGHT ABOUT
+Image for SEO
+Favicon
+
+Public/robots.txt
+SITEMAP
