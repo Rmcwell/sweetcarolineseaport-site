@@ -59,32 +59,37 @@ const secondFloorImages = [
   { src: secondLivingRoom, alt: "2nd Floor — Guest Living Space" },
   { src: secondKitchen, alt: "2nd Floor — Kitchenette" },
   { src: secondTwin, alt: "2nd Floor — Twin Suite" },
-  { src: secondTwin2, alt: "2nd Floor — Guest Room" },
+  { src: secondTwin2, alt: "2nd Floor — Guest Room" }
 ];
 
 const spans = [
   "md:col-span-2 md:row-span-2 col-span-2 row-span-2", // Large Feature
-  "col-span-1 row-span-1", 
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
-  "col-span-1 row-span-2", // Vertical Span
+  "col-span-1 row-span-1",
+  "col-span-1 row-span-2" // Vertical Span
 ];
 ---
 
-<Layout title="Gallery — Sweet Caroline Seaport" description="View photos of our luxury 1st and 2nd floor units in Key West.">
-
-  <PageHero 
-    title="Property Gallery" 
+<Layout
+  title="Photos"
+  description="View photos of our luxury 1st and 2nd floor units in Key West."
+>
+  <PageHero
+    title="Property Gallery"
     subtitle="Explore the renovated interiors and tropical outdoor spaces of our historic seaport home."
     tagline="The View"
   />
 
   <Section background="white">
     <div class="flex justify-center mb-12">
-      <div class="inline-flex rounded-lg bg-stone-100 p-1.5 gap-1 border border-stone-200" role="tablist">
+      <div
+        class="inline-flex rounded-lg bg-stone-100 p-1.5 gap-1 border border-stone-200"
+        role="tablist"
+      >
         <button
           id="tab-first"
           role="tab"
@@ -108,86 +113,171 @@ const spans = [
       </div>
     </div>
 
-    <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" class="tab-panel">
+    <div
+      id="panel-first"
+      role="tabpanel"
+      aria-labelledby="tab-first"
+      class="tab-panel"
+    >
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {firstFloorImages.map((img, i) => {
-          const isLarge = spans[i]?.includes('md:col-span-2');
-          const isVertical = spans[i]?.includes('row-span-2') && !isLarge;
-          
-          return (
-            <div
-              class={`
+        {
+          firstFloorImages.map((img, i) => {
+            const isLarge = spans[i]?.includes("md:col-span-2");
+            const isVertical = spans[i]?.includes("row-span-2") && !isLarge;
+
+            return (
+              <div
+                class={`
                 ${spans[i] ?? "col-span-1"} 
-                ${isVertical ? '' : 'aspect-3/2'} 
+                ${isVertical ? "" : "aspect-3/2"} 
                 rounded-xl overflow-hidden cursor-pointer group relative gallery-item border border-stone-100 shadow-sm
               `}
-              data-src={img.src.src}
-              data-alt={img.alt}
-              style={`animation-delay: ${i * 80}ms`}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={isLarge ? 1200 : 800}
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-brand-secondary/0 group-hover:bg-brand-secondary/30 transition-colors duration-500 flex items-center justify-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                data-src={img.src.src}
+                data-alt={img.alt}
+                style={`animation-delay: ${i * 80}ms`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={isLarge ? 1200 : 800}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-brand-secondary/0 group-hover:bg-brand-secondary/30 transition-colors duration-500 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  >
+                    <>
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      <line x1="11" y1="8" x2="11" y2="14" />
+                      <line x1="8" y1="11" x2="14" y2="11" />
+                    </>
+                  </svg>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        }
       </div>
     </div>
 
-    <div id="panel-second" role="tabpanel" aria-labelledby="tab-second" class="tab-panel hidden">
+    <div
+      id="panel-second"
+      role="tabpanel"
+      aria-labelledby="tab-second"
+      class="tab-panel hidden"
+    >
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {secondFloorImages.map((img, i) => {
-          const isLarge = spans[i]?.includes('md:col-span-2');
-          const isVertical = spans[i]?.includes('row-span-2') && !isLarge;
-          
-          return (
-            <div
-              class={`
+        {
+          secondFloorImages.map((img, i) => {
+            const isLarge = spans[i]?.includes("md:col-span-2");
+            const isVertical = spans[i]?.includes("row-span-2") && !isLarge;
+
+            return (
+              <div
+                class={`
                 ${spans[i] ?? "col-span-1"} 
-                ${isVertical ? '' : 'aspect-3/2'} 
+                ${isVertical ? "" : "aspect-3/2"} 
                 rounded-xl overflow-hidden cursor-pointer group relative gallery-item border border-stone-100 shadow-sm
               `}
-              data-src={img.src.src}
-              data-alt={img.alt}
-              style={`animation-delay: ${i * 80}ms`}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={isLarge ? 1200 : 800}
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-brand-secondary/0 group-hover:bg-brand-secondary/30 transition-colors duration-500 flex items-center justify-center">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                data-src={img.src.src}
+                data-alt={img.alt}
+                style={`animation-delay: ${i * 80}ms`}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={isLarge ? 1200 : 800}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-brand-secondary/0 group-hover:bg-brand-secondary/30 transition-colors duration-500 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  >
+                    <>
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      <line x1="11" y1="8" x2="11" y2="14" />
+                      <line x1="8" y1="11" x2="14" y2="11" />
+                    </>
+                  </svg>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        }
       </div>
     </div>
   </Section>
 
   <CTA />
 
-  <div id="lightbox" class="fixed inset-0 z-100 bg-white/50 backdrop-blur-md items-center justify-center p-4 hidden" role="dialog" aria-modal="true">
-  <button id="lightbox-close" class="absolute top-6 right-6 text-stone-400 hover:text-brand-secondary transition-colors p-2 z-110" aria-label="Close lightbox">
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-  </button>
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-100 bg-white/50 backdrop-blur-md items-center justify-center p-4 hidden"
+    role="dialog"
+    aria-modal="true"
+  >
+    <button
+      id="lightbox-close"
+      class="absolute top-6 right-6 text-stone-400 hover:text-brand-secondary transition-colors p-2 z-110"
+      aria-label="Close lightbox"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><line x1="18" y1="6" x2="6" y2="18"></line><line
+          x1="6"
+          y1="6"
+          x2="18"
+          y2="18"></line></svg
+      >
+    </button>
 
-  <div class="relative max-w-5xl w-full flex flex-col items-center">
-      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-xl transition-all duration-300 scale-95 opacity-0" />
-      
-      <div class="absolute bottom-0 left-0 right-0 bg-white/70 backdrop-blur-sm py-4 rounded-b-lg">
-        <p id="lightbox-caption" class="text-brand-secondary text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-center"></p>
+    <div class="relative max-w-5xl w-full flex flex-col items-center">
+      <img
+        id="lightbox-img"
+        src=""
+        alt=""
+        class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-xl transition-all duration-300 scale-95 opacity-0"
+      />
+
+      <div
+        class="absolute bottom-0 left-0 right-0 bg-white/70 backdrop-blur-sm py-4 rounded-b-lg"
+      >
+        <p
+          id="lightbox-caption"
+          class="text-brand-secondary text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-center"
+        >
+        </p>
       </div>
+    </div>
   </div>
-</div>
 </Layout>
 
 <script>
@@ -215,7 +305,9 @@ const spans = [
 
   // Lightbox Logic
   const lightbox = document.getElementById("lightbox")!;
-  const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement;
+  const lightboxImg = document.getElementById(
+    "lightbox-img"
+  ) as HTMLImageElement;
   const lightboxCap = document.getElementById("lightbox-caption")!;
   const lightboxClose = document.getElementById("lightbox-close")!;
 
@@ -225,7 +317,7 @@ const spans = [
     lightboxCap.textContent = alt;
     lightbox.classList.remove("hidden");
     lightbox.classList.add("flex");
-    
+
     setTimeout(() => {
       lightboxImg.classList.remove("scale-95", "opacity-0");
       lightboxImg.classList.add("scale-100", "opacity-100");
@@ -264,8 +356,14 @@ const spans = [
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .tab-panel:not(.hidden) .gallery-item {
