@@ -3,11 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Section from "../components/UI/Section.astro";
 import ContactForm from "../components/ContactForm.astro";
+
+const pageTitle = "Contact";
+const metaDescription =
+  "Get in touch with us about our luxury Key West vacation rental.";
 ---
 
-<Layout title="Contact" description="Get in touch with us about our luxury Key West vacation rental.">
-
-  <PageHero 
+<Layout title={pageTitle} description={metaDescription}>
+  <PageHero
     title="Get in Touch"
     subtitle="Have questions about Sweet Caroline Seaport? We'd love to hear from you."
     tagline="Contact Us"
@@ -15,71 +18,141 @@ import ContactForm from "../components/ContactForm.astro";
 
   <Section background="white">
     <div class="max-w-3xl mx-auto text-center mb-16">
-        <p class="font-body text-lg text-brand-secondary/80 leading-relaxed mb-8">
-          Once you're familiar with our information and policies, please contact us using the form below. 
-          Just let us know your <span class="font-semibold text-brand-primary">desired date range</span> 
-          and your <span class="font-semibold text-brand-primary">preferred property</span> (First or Second Floor), 
-          and we'll contact you to complete the process.
-        </p>
+      <p class="font-body text-lg text-brand-secondary/80 leading-relaxed mb-8">
+        Once you're familiar with our information and policies, please contact
+        us using the form below. Just let us know your <span
+          class="font-semibold text-brand-primary">desired date range</span
+        >
+        and your <span class="font-semibold text-brand-primary"
+          >preferred property</span
+        > (First or Second Floor), and we'll contact you to complete the process.
+      </p>
 
-        <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent shadow-sm">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
-    <circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>
-  </svg>
-  <p class="font-body text-sm font-semibold uppercase tracking-wide">
-    Important: Sweet Caroline Seaport requires a 28-night minimum stay.
-  </p>
-</div>
+      <div
+        class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent shadow-sm"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="shrink-0"
+        >
+          <circle cx="12" cy="12" r="10"></circle><line
+            x1="12"
+            x2="12"
+            y1="8"
+            y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line>
+        </svg>
+        <p class="font-body text-sm font-semibold uppercase tracking-wide">
+          Important: Sweet Caroline Seaport requires a 28-night minimum stay.
+        </p>
       </div>
+    </div>
 
     <div class="grid lg:grid-cols-12 gap-16 max-w-5xl mx-auto">
-        <div class="lg:col-span-7">
-            <ContactForm />
-        </div>
+      <div class="lg:col-span-7">
+        <ContactForm />
+      </div>
 
       <!-- Contact Details -->
       <div class="lg:col-span-5">
         <h2 class="font-headers text-3xl mb-6">Contact Details</h2>
         <div class="space-y-6 mb-10">
           <!-- Email -->
-          <a href="mailto:info@sweetcarolineseaport.com" class="flex items-start gap-4 group">
-            <div class="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 mt-0.5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                class="text-brand-accent">
-                <rect width="20" height="16" x="2" y="4" rx="2"/>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          <a
+            href="mailto:info@sweetcarolineseaport.com"
+            class="flex items-start gap-4 group"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 mt-0.5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-brand-accent"
+              >
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
               </svg>
             </div>
             <div>
-              <p class="font-body font-medium group-hover:text-brand-accent transition-colors">Email</p>
-              <p class="font-body text-sm text-brand-secondary/60">info@sweetcarolineseaport.com</p>
+              <p
+                class="font-body font-medium group-hover:text-brand-accent transition-colors"
+              >
+                Email
+              </p>
+              <p class="font-body text-sm text-brand-secondary/60">
+                info@sweetcarolineseaport.com
+              </p>
             </div>
           </a>
- 
+
           <!-- Phone -->
           <a href="tel:+13055551234" class="flex items-start gap-4 group">
-            <div class="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 mt-0.5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                class="text-brand-accent">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/>
+            <div
+              class="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 mt-0.5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-brand-accent"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"
+                ></path>
               </svg>
             </div>
             <div>
-              <p class="font-body font-medium group-hover:text-brand-accent transition-colors">Phone</p>
-              <p class="font-body text-sm text-brand-secondary/60">(305) 555-1234</p>
+              <p
+                class="font-body font-medium group-hover:text-brand-accent transition-colors"
+              >
+                Phone
+              </p>
+              <p class="font-body text-sm text-brand-secondary/60">
+                (305) 555-1234
+              </p>
             </div>
           </a>
- 
+
           <!-- Address -->
           <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 mt-0.5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                class="text-brand-accent">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                <circle cx="12" cy="10" r="3"/>
+            <div
+              class="w-10 h-10 rounded-full bg-brand-accent/15 flex items-center justify-center shrink-0 mt-0.5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-brand-accent"
+              >
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
               </svg>
             </div>
             <div>
@@ -90,19 +163,20 @@ import ContactForm from "../components/ContactForm.astro";
               </p>
             </div>
           </div>
- 
         </div>
- 
+
         <!-- Concierge callout -->
-        <div class="p-6 rounded-xl bg-brand-primary/5 border border-brand-primary/10 shadow-sm">
+        <div
+          class="p-6 rounded-xl bg-brand-primary/5 border border-brand-primary/10 shadow-sm"
+        >
           <h3 class="font-headers text-lg mb-2">Concierge Service</h3>
           <p class="font-body text-sm text-brand-secondary/70 leading-relaxed">
-            Our concierge, Bopha, will introduce you to the very best Key West has to offer.
-            With local knowledge, you can create a true connection with our island community
-            and make your stay a once-in-a-lifetime experience.
+            Our concierge, Bopha, will introduce you to the very best Key West
+            has to offer. With local knowledge, you can create a true connection
+            with our island community and make your stay a once-in-a-lifetime
+            experience.
           </p>
         </div>
- 
       </div>
     </div>
   </Section>

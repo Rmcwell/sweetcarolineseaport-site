@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import frontRightDoor from "../assets/frontRightDoor.webp"
+import frontRightDoor from "../assets/frontRightDoor.webp";
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Section from "../components/UI/Section.astro";
@@ -21,7 +21,7 @@ const firstFloorPricing = [
   { period: "Jan 2026", rate: "$428/night" },
   { period: "Feb 2026", rate: "$442/night" },
   { period: "Mar 2026", rate: "$442/night" },
-  { period: "Apr 2026", rate: "$361/night" },
+  { period: "Apr 2026", rate: "$361/night" }
 ];
 
 const secondFloorPricing = [
@@ -37,7 +37,7 @@ const secondFloorPricing = [
   { period: "Jan 2026", rate: "$391/night" },
   { period: "Feb 2026", rate: "$404/night" },
   { period: "Mar 2026", rate: "$393/night" },
-  { period: "Apr 2026", rate: "$330/night" },
+  { period: "Apr 2026", rate: "$330/night" }
 ];
 
 const amenityCategories = [
@@ -48,8 +48,8 @@ const amenityCategories = [
       { icon: "tv", label: "Cable & Smart TVs" },
       { icon: "wind", label: "Central A/C & Heating" },
       { icon: "shirt", label: "Washer, Dryer & Iron" },
-      { icon: "laptop", label: "Laptop-Friendly Workspace" },
-    ],
+      { icon: "laptop", label: "Laptop-Friendly Workspace" }
+    ]
   },
   {
     title: "Full Kitchen",
@@ -58,8 +58,8 @@ const amenityCategories = [
       { icon: "refrigerator", label: "Fridge & Dishwasher" },
       { icon: "coffee", label: "Coffee Maker & Microwave" },
       { icon: "utensils-crossed", label: "Pots, Pans & Silverware" },
-      { icon: "cookie", label: "Baking Sheets & Basics" },
-    ],
+      { icon: "cookie", label: "Baking Sheets & Basics" }
+    ]
   },
   {
     title: "Bed & Bath",
@@ -68,8 +68,8 @@ const amenityCategories = [
       { icon: "bed-double", label: "Premium Linens & Pillows" },
       { icon: "shower-head", label: "Shampoo & Aromatherapy" },
       { icon: "sparkles", label: "Diffuser with Oils" },
-      { icon: "wind", label: "Hair Dryer & Hangers" },
-    ],
+      { icon: "wind", label: "Hair Dryer & Hangers" }
+    ]
   },
   {
     title: "Outdoor & Logistics",
@@ -78,36 +78,51 @@ const amenityCategories = [
       { icon: "car", label: "Garage Parking Nearby" },
       { icon: "sun", label: "Patio or Private Balcony" },
       { icon: "package", label: "Luggage Drop-off Allowed" },
-      { icon: "lock", label: "Private Entrance" },
-    ],
-  },
+      { icon: "lock", label: "Private Entrance" }
+    ]
+  }
 ];
 
 const iconPaths: Record<string, string> = {
   wifi: '<path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/>',
   tv: '<rect width="20" height="15" x="2" y="3" rx="2"/><polyline points="8 21 12 17 16 21"/>',
   wind: '<path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>',
-  shirt: '<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/>',
-  "utensils-crossed": '<path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"/><path d="m2.1 21.8 6.4-6.3"/>',
-  coffee: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/>',
-  flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
-  refrigerator: '<path d="M5 6a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z"/><path d="M5 10h14"/><path d="M15 7v6"/>',
-  "bed-double": '<path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 10v10"/><path d="M2 20h20"/>',
-  "shower-head": '<path d="m4 4 2.5 2.5"/><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"/><path d="M15 5 5 15"/><path d="M14 17v.01"/><path d="M10 16v.01"/><path d="M13 13v.01"/><path d="M16 10v.01"/><path d="M11 20v.01"/><path d="M17 14v.01"/><path d="M20 11v.01"/>',
-  sparkles: '<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>',
-  waves: '<path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>',
+  shirt:
+    '<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/>',
+  "utensils-crossed":
+    '<path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"/><path d="m2.1 21.8 6.4-6.3"/>',
+  coffee:
+    '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/>',
+  flame:
+    '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  refrigerator:
+    '<path d="M5 6a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z"/><path d="M5 10h14"/><path d="M15 7v6"/>',
+  "bed-double":
+    '<path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"/><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M12 10v10"/><path d="M2 20h20"/>',
+  "shower-head":
+    '<path d="m4 4 2.5 2.5"/><path d="M13.5 6.5a4.95 4.95 0 0 0-7 7"/><path d="M15 5 5 15"/><path d="M14 17v.01"/><path d="M10 16v.01"/><path d="M13 13v.01"/><path d="M16 10v.01"/><path d="M11 20v.01"/><path d="M17 14v.01"/><path d="M20 11v.01"/>',
+  sparkles:
+    '<path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>',
+  waves:
+    '<path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>',
   car: '<path d="M19 17H5v-6l2-7h10l2 7v6Z"/><path d="M3 17h18"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/>',
   lock: '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
   bike: '<circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/>',
-  laptop: '<rect width="18" height="12" x="3" y="4" rx="2"/><path d="M2 20h20"/>',
+  laptop:
+    '<rect width="18" height="12" x="3" y="4" rx="2"/><path d="M2 20h20"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
-  package: '<path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/>',
-  cookie: '<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/>',
+  package:
+    '<path d="M16.5 9.4 7.5 4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/>',
+  cookie:
+    '<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/>'
 };
+
+const pageTitle = "About";
+const metaDescription =
+  "Learn about our luxury Key West vacation rental property.";
 ---
 
-<Layout title="About" description="Learn about our luxury Key West vacation rental property.">
-
+<Layout title={pageTitle} description={metaDescription}>
   <PageHero
     title="About the Property"
     subtitle="Your private oasis in the heart of Old Town Key West. Choose from two beautifully renovated units with a 28-night minimum stay."
@@ -117,19 +132,26 @@ const iconPaths: Record<string, string> = {
   <Section class="max-w-4xl text-center">
     <SectionHeader title="Historic Seaport Living" tagline="The Property">
       <p class="leading-relaxed text-lg mb-12 opacity-80">
-        This fully renovated house is located in the historic seaport with many highly rated
-        restaurants and shops. A quick 5-minute walk will take you to the iconic Duval Street,
-        the heart of Key West. Three-dimensional ceilings throughout with indirect LED lighting,
-        fully equipped kitchens, ceiling fans, and new furniture in every room.
+        This fully renovated house is located in the historic seaport with many
+        highly rated restaurants and shops. A quick 5-minute walk will take you
+        to the iconic Duval Street, the heart of Key West. Three-dimensional
+        ceilings throughout with indirect LED lighting, fully equipped kitchens,
+        ceiling fans, and new furniture in every room.
       </p>
     </SectionHeader>
 
     <div class="grid md:grid-cols-2 gap-8">
-      <div class="about-left bg-white rounded-xl shadow-md p-8 text-center opacity-0 -translate-x-8 transition-all duration-700 ease-out">
-        <p class="text-xs tracking-[0.3em] uppercase text-brand-accent mb-2">Unit One</p>
+      <div
+        class="about-left bg-white rounded-xl shadow-md p-8 text-center opacity-0 -translate-x-8 transition-all duration-700 ease-out"
+      >
+        <p class="text-xs tracking-[0.3em] uppercase text-brand-accent mb-2">
+          Unit One
+        </p>
         <h3 class="font-headers text-2xl mb-1">First Floor</h3>
         <div class="w-8 h-0.5 rounded-full bg-brand-accent mx-auto my-3"></div>
-        <p class="text-sm opacity-60 mb-4">8 Guests · 3 Bedrooms · 5 Beds · 3 Baths</p>
+        <p class="text-sm opacity-60 mb-4">
+          8 Guests · 3 Bedrooms · 5 Beds · 3 Baths
+        </p>
         <div class="text-sm space-y-1.5 opacity-80">
           <p>Bedroom 1: 1 King Bed</p>
           <p>Bedroom 2: 1 Queen Bed</p>
@@ -139,11 +161,17 @@ const iconPaths: Record<string, string> = {
         </div>
       </div>
 
-      <div class="about-right bg-white rounded-xl shadow-md p-8 text-center opacity-0 translate-x-8 transition-all duration-700 ease-out delay-150">
-        <p class="text-xs tracking-[0.3em] uppercase text-brand-accent mb-2">Unit Two</p>
+      <div
+        class="about-right bg-white rounded-xl shadow-md p-8 text-center opacity-0 translate-x-8 transition-all duration-700 ease-out delay-150"
+      >
+        <p class="text-xs tracking-[0.3em] uppercase text-brand-accent mb-2">
+          Unit Two
+        </p>
         <h3 class="font-headers text-2xl mb-1">Second Floor</h3>
         <div class="w-8 h-0.5 rounded-full bg-brand-accent mx-auto my-3"></div>
-        <p class="text-sm opacity-60 mb-4">6 Guests · 2 Bedrooms · 4 Beds · 2.5 Baths</p>
+        <p class="text-sm opacity-60 mb-4">
+          6 Guests · 2 Bedrooms · 4 Beds · 2.5 Baths
+        </p>
         <div class="text-sm space-y-1.5 opacity-80">
           <p>Bedroom 1: 1 King Bed</p>
           <p>Bedroom 2: 2 Twin Beds</p>
@@ -155,132 +183,193 @@ const iconPaths: Record<string, string> = {
   </Section>
 
   <Section background="light">
-  <SectionHeader 
-    title="House Rules & Info" 
-    tagline="Stay Guidelines" 
-    class="text-center mx-auto" 
-  />
+    <SectionHeader
+      title="House Rules & Info"
+      tagline="Stay Guidelines"
+      class="text-center mx-auto"
+    />
 
-  <div class="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
-    <div class="reveal-card opacity-0 translate-y-5 transition-all duration-700">
-      
-      <div class="pb-6 text-center">
-        <div class="inline-block relative">
-           <p class="text-2xl font-headers text-brand-secondary relative z-10">28-Night Minimum Stay</p>
-           <div class="absolute -bottom-1 left-0 w-full h-3 bg-brand-accent/20 z-0"></div>
-        </div>
-        <p class="text-[10px] uppercase tracking-[0.3em] text-brand-secondary/40 font-bold mt-4">
-          No Hidden Costs or Booking Fees
-        </p>
-      </div>
-
-      <div class="bg-stone-50 rounded-xl p-8 mb-10 border border-stone-100 shadow-sm">
-          <div class="grid grid-cols-2 divide-x divide-stone-200 text-center">
-              <div class="px-4">
-                  <p class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-2 font-bold">Check In</p>
-                  <p class="font-headers text-3xl text-brand-secondary">4:00 PM</p>
-              </div>
-              <div class="px-4">
-                  <p class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-2 font-bold">Check Out</p>
-                  <p class="font-headers text-3xl text-brand-secondary">10:00 AM</p>
-              </div>
+    <div class="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+      <div
+        class="reveal-card opacity-0 translate-y-5 transition-all duration-700"
+      >
+        <div class="pb-6 text-center">
+          <div class="inline-block relative">
+            <p class="text-2xl font-headers text-brand-secondary relative z-10">
+              28-Night Minimum Stay
+            </p>
+            <div
+              class="absolute -bottom-1 left-0 w-full h-3 bg-brand-accent/20 z-0"
+            >
+            </div>
           </div>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-x-10 gap-y-4 text-[11px] mb-12 px-2 uppercase tracking-[0.2em] font-bold text-brand-secondary/50">
-        <p class="flex items-center gap-2">✕ No Smoking</p>
-        <p class="flex items-center gap-2">✕ No Pets</p>
-        <p class="flex items-center gap-2">✕ No Parties</p>
-      </div>
-
-      <div class="grid sm:grid-cols-3 gap-8 mb-12 text-center border-y border-stone-100 py-10 px-4">
-        <div class="space-y-2">
-          <p class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Parking</p>
-          <p class="text-sm text-brand-secondary/80 leading-relaxed">1 free pass per unit provided for nearby garage</p>
-        </div>
-        <div class="space-y-2 border-x border-stone-100 px-4">
-          <p class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Guest Access</p>
-          <p class="text-sm text-brand-secondary/80 leading-relaxed">Private front door entry for all units</p>
-        </div>
-        <div class="space-y-2">
-          <p class="text-[10px] uppercase tracking-widest text-brand-accent font-bold">Stairs</p>
-          <p class="text-sm text-brand-secondary/80 leading-relaxed">4 steps to 1st floor <br /> 21 steps to 2nd floor</p>
-        </div>
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div class="bg-brand-secondary rounded-xl p-6 border border-brand-secondary shadow-lg">
-          <p class="text-[10px] tracking-[0.3em] uppercase text-brand-accent mb-3 font-bold">Policy</p>
-          <h3 class="font-headers text-lg mb-4 text-white">Cancellation</h3>
-          <ul class="text-xs space-y-3 text-white">
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-              <span><strong>4 Weeks:</strong> Full Refund</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
-              <span><strong>2 Weeks:</strong> 50% Refund</span>
-            </li>
-            <li class="italic opacity-60 mt-2">*No refunds under 2 weeks*</li>
-          </ul>
-        </div>
-
-        <div class="bg-brand-secondary rounded-xl p-6 flex flex-col justify-between border border-brand-primary/10 shadow-lg">
-          <div>
-            <p class="text-[9px] uppercase tracking-widest text-brand-accent font-bold mb-1">On-Site Concierge</p>
-            <h3 class="font-headers text-2xl text-white">Bopha</h3>
-          </div>
-          <p class="text-xs leading-relaxed mt-4 text-white">
-            Available for check-in assistance and local Key West recommendations.
+          <p
+            class="text-[10px] uppercase tracking-[0.3em] text-brand-secondary/40 font-bold mt-4"
+          >
+            No Hidden Costs or Booking Fees
           </p>
         </div>
-      </div>
-    </div>
 
-    <div class="reveal-card opacity-0 translate-y-5 transition-all duration-700 delay-200 relative lg:sticky lg:top-32">
-      <Image 
-          src={frontRightDoor} 
-          alt="Sweet Caroline Seaport Entry" 
+        <div
+          class="bg-stone-50 rounded-xl p-8 mb-10 border border-stone-100 shadow-sm"
+        >
+          <div class="grid grid-cols-2 divide-x divide-stone-200 text-center">
+            <div class="px-4">
+              <p
+                class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-2 font-bold"
+              >
+                Check In
+              </p>
+              <p class="font-headers text-3xl text-brand-secondary">4:00 PM</p>
+            </div>
+            <div class="px-4">
+              <p
+                class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-2 font-bold"
+              >
+                Check Out
+              </p>
+              <p class="font-headers text-3xl text-brand-secondary">10:00 AM</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-wrap justify-center gap-x-10 gap-y-4 text-[11px] mb-12 px-2 uppercase tracking-[0.2em] font-bold text-brand-secondary/50"
+        >
+          <p class="flex items-center gap-2">✕ No Smoking</p>
+          <p class="flex items-center gap-2">✕ No Pets</p>
+          <p class="flex items-center gap-2">✕ No Parties</p>
+        </div>
+
+        <div
+          class="grid sm:grid-cols-3 gap-8 mb-12 text-center border-y border-stone-100 py-10 px-4"
+        >
+          <div class="space-y-2">
+            <p
+              class="text-[10px] uppercase tracking-widest text-brand-accent font-bold"
+            >
+              Parking
+            </p>
+            <p class="text-sm text-brand-secondary/80 leading-relaxed">
+              1 free pass per unit provided for nearby garage
+            </p>
+          </div>
+          <div class="space-y-2 border-x border-stone-100 px-4">
+            <p
+              class="text-[10px] uppercase tracking-widest text-brand-accent font-bold"
+            >
+              Guest Access
+            </p>
+            <p class="text-sm text-brand-secondary/80 leading-relaxed">
+              Private front door entry for all units
+            </p>
+          </div>
+          <div class="space-y-2">
+            <p
+              class="text-[10px] uppercase tracking-widest text-brand-accent font-bold"
+            >
+              Stairs
+            </p>
+            <p class="text-sm text-brand-secondary/80 leading-relaxed">
+              4 steps to 1st floor <br /> 21 steps to 2nd floor
+            </p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div
+            class="bg-brand-secondary rounded-xl p-6 border border-brand-secondary shadow-lg"
+          >
+            <p
+              class="text-[10px] tracking-[0.3em] uppercase text-brand-accent mb-3 font-bold"
+            >
+              Policy
+            </p>
+            <h3 class="font-headers text-lg mb-4 text-white">Cancellation</h3>
+            <ul class="text-xs space-y-3 text-white">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                <span><strong>4 Weeks:</strong> Full Refund</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                <span><strong>2 Weeks:</strong> 50% Refund</span>
+              </li>
+              <li class="italic opacity-60 mt-2">*No refunds under 2 weeks*</li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-brand-secondary rounded-xl p-6 flex flex-col justify-between border border-brand-primary/10 shadow-lg"
+          >
+            <div>
+              <p
+                class="text-[9px] uppercase tracking-widest text-brand-accent font-bold mb-1"
+              >
+                On-Site Concierge
+              </p>
+              <h3 class="font-headers text-2xl text-white">Bopha</h3>
+            </div>
+            <p class="text-xs leading-relaxed mt-4 text-white">
+              Available for check-in assistance and local Key West
+              recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="reveal-card opacity-0 translate-y-5 transition-all duration-700 delay-200 relative lg:sticky lg:top-32"
+      >
+        <Image
+          src={frontRightDoor}
+          alt="Sweet Caroline Seaport Entry"
           width={800}
           height={1000}
           class="rounded-lg shadow-2xl w-full aspect-4/5 object-cover"
-      />
+        />
+      </div>
     </div>
-  </div>
-</Section>
+  </Section>
 
   <Section>
     <SectionHeader title="Pricing" tagline="Rates">
       <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
-        Pricing is for the entire unit regardless of number of guests. $1,000 security deposit per rental.<br />
-        5% Local Tax and 7.5% State Tax collected. No hidden costs or booking fees.<br />
+        Pricing is for the entire unit regardless of number of guests. $1,000
+        security deposit per rental.<br />
+        5% Local Tax and 7.5% State Tax collected. No hidden costs or booking fees.<br
+        />
         Please see our Availability page to view available dates for booking.
       </p>
     </SectionHeader>
 
     <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      {[
-        { title: "1st Floor · 3 Bedroom", data: firstFloorPricing },
-        { title: "2nd Floor · 2 Bedroom", data: secondFloorPricing },
-      ].map((unit, idx) => (
-        <div
-          class="reveal-card bg-white rounded-xl shadow-md overflow-hidden opacity-0 translate-y-5 transition-all duration-700"
-          style={`transition-delay: ${idx * 150}ms`}
-        >
-          <div class="bg-brand-secondary text-white text-center py-6 px-4">
-            <p class="text-xs tracking-[0.3em] uppercase text-brand-primary mb-1">Nightly Rate</p>
-            <h3 class="font-headers text-xl">{unit.title}</h3>
+      {
+        [
+          { title: "1st Floor · 3 Bedroom", data: firstFloorPricing },
+          { title: "2nd Floor · 2 Bedroom", data: secondFloorPricing }
+        ].map((unit, idx) => (
+          <div
+            class="reveal-card bg-white rounded-xl shadow-md overflow-hidden opacity-0 translate-y-5 transition-all duration-700"
+            style={`transition-delay: ${idx * 150}ms`}
+          >
+            <div class="bg-brand-secondary text-white text-center py-6 px-4">
+              <p class="text-xs tracking-[0.3em] uppercase text-brand-primary mb-1">
+                Nightly Rate
+              </p>
+              <h3 class="font-headers text-xl">{unit.title}</h3>
+            </div>
+            <div class="divide-y divide-stone-100">
+              {unit.data.map((row) => (
+                <div class="flex items-center justify-between px-6 py-3 text-sm hover:bg-brand-primary/5 transition-colors">
+                  <span class="opacity-60">{row.period}</span>
+                  <span class="font-semibold">{row.rate}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div class="divide-y divide-stone-100">
-            {unit.data.map((row) => (
-              <div class="flex items-center justify-between px-6 py-3 text-sm hover:bg-brand-primary/5 transition-colors">
-                <span class="opacity-60">{row.period}</span>
-                <span class="font-semibold">{row.rate}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     <div class="text-center mt-12">
@@ -293,64 +382,97 @@ const iconPaths: Record<string, string> = {
   <Section background="light">
     <SectionHeader title="Amenities" tagline="What We Offer">
       <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
-        Sweet Caroline Seaport offers you everything you need, and more, to have a comfortable, luxurious stay in Key West.  
-        To take your experience to the next level, our Concierge affords an astonishing array of personalized services. 
-        Upon your arrival, our concierge, Bopha, will introduce you to the very best Key West has to offer.
+        Sweet Caroline Seaport offers you everything you need, and more, to have
+        a comfortable, luxurious stay in Key West. To take your experience to
+        the next level, our Concierge affords an astonishing array of
+        personalized services. Upon your arrival, our concierge, Bopha, will
+        introduce you to the very best Key West has to offer.
       </p>
       <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
-        With our local knowledge, you can create a true connection with our island community, and make your stay a once-in-a-lifetime experience. 
+        With our local knowledge, you can create a true connection with our
+        island community, and make your stay a once-in-a-lifetime experience.
       </p>
     </SectionHeader>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-      {amenityCategories.map((cat, catIdx) => (
-        <div
-          class="reveal-card bg-white rounded-xl shadow-md p-6 opacity-0 translate-y-5 transition-all duration-700 hover:shadow-lg hover:-translate-y-1 border border-stone-200"
-          style={`transition-delay: ${catIdx * 100}ms`}
-        >
-          <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-1 font-bold">Included</p>
-          <h3 class="font-headers text-lg mb-3 text-brand-secondary">{cat.title}</h3>
-          <div class="w-8 h-0.5 rounded-full bg-brand-accent mb-6"></div>
-          <div class="space-y-4">
-            {cat.items.map((item) => (
-              <div class="flex items-start gap-3">
-                <div class="w-7 h-7 rounded-full bg-brand-primary/10 flex items-center justify-center shrink-0">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="text-brand-secondary"
-                    set:html={iconPaths[item.icon]}
-                  />
+      {
+        amenityCategories.map((cat, catIdx) => (
+          <div
+            class="reveal-card bg-white rounded-xl shadow-md p-6 opacity-0 translate-y-5 transition-all duration-700 hover:shadow-lg hover:-translate-y-1 border border-stone-200"
+            style={`transition-delay: ${catIdx * 100}ms`}
+          >
+            <p class="text-[10px] tracking-[0.25em] uppercase text-brand-accent mb-1 font-bold">
+              Included
+            </p>
+            <h3 class="font-headers text-lg mb-3 text-brand-secondary">
+              {cat.title}
+            </h3>
+            <div class="w-8 h-0.5 rounded-full bg-brand-accent mb-6" />
+            <div class="space-y-4">
+              {cat.items.map((item) => (
+                <div class="flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-full bg-brand-primary/10 flex items-center justify-center shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-brand-secondary"
+                      set:html={iconPaths[item.icon]}
+                    />
+                  </div>
+                  <span class="text-xs text-brand-secondary/80 leading-tight pt-1">
+                    {item.label}
+                  </span>
                 </div>
-                <span class="text-xs text-brand-secondary/80 leading-tight pt-1">{item.label}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
 
     <div class="mt-16 max-w-4xl mx-auto border-t border-stone-200 pt-8">
       <div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
-        {["Smoke Alarm", "Carbon Monoxide Alarm", "Fire Extinguisher", "First Aid Kit"].map(safety => (
-          <div class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-brand-secondary/40 font-bold">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-accent"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
-            {safety}
-          </div>
-        ))}
+        {
+          [
+            "Smoke Alarm",
+            "Carbon Monoxide Alarm",
+            "Fire Extinguisher",
+            "First Aid Kit"
+          ].map((safety) => (
+            <div class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-brand-secondary/40 font-bold">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-brand-accent"
+              >
+                <>
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                  <path d="m9 12 2 2 4-4" />
+                </>
+              </svg>
+              {safety}
+            </div>
+          ))
+        }
       </div>
     </div>
   </Section>
 
   <CTA />
-
 </Layout>
 
 <script>
@@ -382,6 +504,10 @@ const iconPaths: Record<string, string> = {
     { threshold: 0.15, rootMargin: "-100px" }
   );
 
-  document.querySelectorAll(".reveal-card").forEach((el) => cardObserver.observe(el));
-  document.querySelectorAll(".about-left, .about-right").forEach((el) => slideObserver.observe(el));
+  document
+    .querySelectorAll(".reveal-card")
+    .forEach((el) => cardObserver.observe(el));
+  document
+    .querySelectorAll(".about-left, .about-right")
+    .forEach((el) => slideObserver.observe(el));
 </script>

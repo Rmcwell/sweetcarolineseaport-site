@@ -2,19 +2,25 @@
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Section from "../components/UI/Section.astro";
+
+const pageTitle = "Availability";
+const metaDescription =
+  "View availability of our luxury 1st and 2nd floor units in Key West.";
 ---
 
-<Layout title="Availability" description="View availability of our luxury 1st and 2nd floor units in Key West.">
-
-  <PageHero 
-    title="Property Gallery" 
+<Layout title={pageTitle} description={metaDescription}>
+  <PageHero
+    title="Property Gallery"
     subtitle="Explore the meticulously renovated interiors and tropical outdoor spaces of our historic seaport home."
     tagline="The View"
   />
 
   <Section background="white">
     <div class="flex justify-center mb-12">
-      <div class="inline-flex rounded-lg bg-stone-100 p-1.5 gap-1 border border-stone-200" role="tablist">
+      <div
+        class="inline-flex rounded-lg bg-stone-100 p-1.5 gap-1 border border-stone-200"
+        role="tablist"
+      >
         <button
           id="tab-first"
           role="tab"
@@ -38,20 +44,26 @@ import Section from "../components/UI/Section.astro";
       </div>
     </div>
 
-    <div id="panel-first" role="tabpanel" aria-labelledby="tab-first" class="tab-panel">
-        
+    <div
+      id="panel-first"
+      role="tabpanel"
+      aria-labelledby="tab-first"
+      class="tab-panel"
+    >
     </div>
 
-    <div id="panel-second" role="tabpanel" aria-labelledby="tab-second" class="tab-panel hidden">
-        
+    <div
+      id="panel-second"
+      role="tabpanel"
+      aria-labelledby="tab-second"
+      class="tab-panel hidden"
+    >
     </div>
-
   </Section>
 </Layout>
 
-
 <script>
-    // Tab Switching Logic
+  // Tab Switching Logic
   const tabs = document.querySelectorAll<HTMLButtonElement>(".tab-btn");
   const panels = document.querySelectorAll<HTMLElement>(".tab-panel");
 
