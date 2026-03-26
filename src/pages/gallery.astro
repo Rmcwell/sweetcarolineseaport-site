@@ -1,13 +1,17 @@
 ---
 import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Section from "../components/UI/Section.astro";
+import CTA from "../components/CTA.astro";
 
-// General Assets
+// General Images
 import fence from "../assets/fence.webp";
 import frontChairs from "../assets/frontChairs.webp";
 import frontDoors from "../assets/frontDoors.webp";
 import backyard from "../assets/backyard.webp";
 
-// 1st Floor Assets
+// 1st Floor Images
 import firstBathroom from "../assets/1stFloor/firstBathroom.webp";
 import firstHallway from "../assets/1stFloor/firstHallway.webp";
 import firstLivingRoom from "../assets/1stFloor/firstLivingRoom.webp";
@@ -17,7 +21,7 @@ import firstMaster from "../assets/1stFloor/firstMaster.webp";
 import firstQueen from "../assets/1stFloor/firstQueen.webp";
 import firstTwin from "../assets/1stFloor/firstTwin.webp";
 
-// 2nd Floor Assets
+// 2nd Floor Images
 import secondBalcony from "../assets/2ndFloor/secondBalcony.webp";
 import secondKitchen from "../assets/2ndFloor/secondKitchen.webp";
 import secondKitchenLivingRoom from "../assets/2ndFloor/secondKitchenLivingRoom.webp";
@@ -26,11 +30,6 @@ import secondMaster from "../assets/2ndFloor/secondMaster.webp";
 import secondStairs from "../assets/2ndFloor/secondStairs.webp";
 import secondTwin from "../assets/2ndFloor/secondTwin.webp";
 import secondTwin2 from "../assets/2ndFloor/secondTwin2.webp";
-
-import Layout from "../layouts/Layout.astro";
-import PageHero from "../components/PageHero.astro";
-import Section from "../components/UI/Section.astro";
-import CTA from "../components/CTA.astro";
 
 const firstFloorImages = [
   { src: firstLivingRoom, alt: "1st Floor — Spacious Living Area" },
