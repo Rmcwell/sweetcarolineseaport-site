@@ -4,10 +4,7 @@ interface Props {
   description: string;
 }
 
-const {
-  title,
-  description,
-} = Astro.props;
+const { title, description } = Astro.props;
 
 // UPDATE THIS FOR EVERY NEW CLIENT
 const brandName = "Sweet Caroline Seaport";
@@ -16,10 +13,10 @@ const socialImageURL = new URL("/og-main.jpg", Astro.site).href;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 
-// If a title exists (About, Gallery, etc.), show "Page | Brand"
+// If a title exists (About, Photos, etc.), show "Page | Brand"
 // If no title exists (Home), show "Brand | Tagline"
-const siteTitle = title 
-  ? `${title} | ${brandName}` 
+const siteTitle = title
+  ? `${title} | ${brandName}`
   : `${brandName} | ${homepageTagline}`;
 ---
 

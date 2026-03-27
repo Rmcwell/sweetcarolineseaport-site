@@ -79,7 +79,7 @@ const metaDescription =
 
 <Layout title={pageTitle} description={metaDescription}>
   <PageHero
-    title="Property Gallery"
+    title="Property Photos"
     subtitle="Explore the renovated interiors and tropical outdoor spaces of our historic seaport home."
     tagline="The View"
   />
@@ -130,7 +130,7 @@ const metaDescription =
                 class={`
                 ${spans[i] ?? "col-span-1"} 
                 ${isVertical ? "" : "aspect-3/2"} 
-                rounded-xl overflow-hidden cursor-pointer group relative gallery-item border border-stone-100 shadow-sm
+                rounded-xl overflow-hidden cursor-pointer group relative photo-item border border-stone-100 shadow-sm
               `}
                 data-src={img.src.src}
                 data-alt={img.alt}
@@ -187,7 +187,7 @@ const metaDescription =
                 class={`
                 ${spans[i] ?? "col-span-1"} 
                 ${isVertical ? "" : "aspect-3/2"} 
-                rounded-xl overflow-hidden cursor-pointer group relative gallery-item border border-stone-100 shadow-sm
+                rounded-xl overflow-hidden cursor-pointer group relative photo-item border border-stone-100 shadow-sm
               `}
                 data-src={img.src.src}
                 data-alt={img.alt}
@@ -335,7 +335,7 @@ const metaDescription =
   }
 
   document.addEventListener("click", (e) => {
-    const item = (e.target as Element).closest<HTMLElement>(".gallery-item");
+    const item = (e.target as Element).closest<HTMLElement>(".photo-item");
     if (item) openLightbox(item.dataset.src!, item.dataset.alt!);
   });
 
@@ -350,7 +350,7 @@ const metaDescription =
 </script>
 
 <style>
-  .gallery-item {
+  .photo-item {
     opacity: 0;
     animation: fadeInUp 0.6s ease forwards;
   }
@@ -366,7 +366,7 @@ const metaDescription =
     }
   }
 
-  .tab-panel:not(.hidden) .gallery-item {
+  .tab-panel:not(.hidden) .photo-item {
     animation: fadeInUp 0.6s ease forwards;
   }
 </style>
