@@ -7,7 +7,7 @@ const navLinks = [
   { label: "Availability", href: "/availability" },
   { label: "Photos", href: "/photos" },
   { label: "Location", href: "/location" },
-  { label: "Contact", href: "/contact" }
+  { label: "Contact", href: "/contact" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -44,7 +44,7 @@ const currentPath = Astro.url.pathname;
             data-nav-link
             class:list={[
               "text-sm font-medium tracking-wide transition-colors duration-300 hover:text-brand-accent",
-              currentPath === link.href ? "text-brand-accent" : "text-white/90"
+              currentPath === link.href ? "text-brand-accent" : "text-white/90",
             ]}
           >
             {link.label}
@@ -113,7 +113,7 @@ const currentPath = Astro.url.pathname;
               "text-base tracking-widest uppercase font-medium transition-colors",
               currentPath === link.href
                 ? "text-brand-accent"
-                : "text-white hover:text-brand-accent"
+                : "text-white hover:text-brand-accent",
             ]}
           >
             {link.label}
@@ -131,14 +131,14 @@ const currentPath = Astro.url.pathname;
   function initHeader() {
     const header = document.getElementById("site-header") as HTMLElement | null;
     const mobileToggle = document.getElementById(
-      "mobile-toggle"
+      "mobile-toggle",
     ) as HTMLButtonElement | null;
     const mobileMenu = document.getElementById(
-      "mobile-menu"
+      "mobile-menu",
     ) as HTMLElement | null;
     const iconOpen = document.getElementById("icon-open") as HTMLElement | null;
     const iconClose = document.getElementById(
-      "icon-close"
+      "icon-close",
     ) as HTMLElement | null;
     const navLinks = document.querySelectorAll<HTMLElement>("[data-nav-link]");
 
