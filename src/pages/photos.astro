@@ -49,7 +49,7 @@ const firstFloorImages = [
 const secondFloorImages = [
   { src: secondKitchenLivingRoom, alt: "2nd Floor — Open Concept Living" },
   { src: fence, alt: "Historic Seaport Exterior" },
-  { src: frontChairs, alt: "Cozy Front Porch Seating" },
+  { src: secondMaster, alt: "2nd Floor — Master Bedroom" },
   { src: frontDoors, alt: "Historic Entryway" },
   { src: backyard, alt: "Tropical Backyard Oasis" },
   { src: secondMaster, alt: "2nd Floor — Master Bedroom" },
@@ -62,14 +62,14 @@ const secondFloorImages = [
 ];
 
 const spans = [
-  "md:col-span-2 md:row-span-2 col-span-2 row-span-2", // Large Feature
+  "md:col-span-2 md:row-span-2 col-span-2 row-span-2",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
   "col-span-1 row-span-1",
-  "col-span-1 row-span-2", // Vertical Span
+  "col-span-1 row-span-2",
 ];
 
 const pageTitle = "Photos";
@@ -156,16 +156,13 @@ const metaDescription =
           firstFloorImages.map((img, i) => {
             const isLarge = spans[i]?.includes("md:col-span-2");
             const isVertical = spans[i]?.includes("row-span-2") && !isLarge;
-
             return (
               <div
-                class={`
-                ${spans[i] ?? "col-span-1"} 
-                ${isVertical ? "" : "aspect-3/2"} 
-                rounded-xl overflow-hidden cursor-pointer group relative photo-item border border-stone-100 shadow-sm
-              `}
+                class={`${spans[i] ?? "col-span-1"} ${isVertical ? "" : "aspect-3/2"} rounded-xl overflow-hidden cursor-pointer group relative photo-item border border-stone-100 shadow-sm`}
                 data-src={img.src.src}
                 data-alt={img.alt}
+                data-gallery="first"
+                data-index={i}
                 style={`animation-delay: ${i * 80}ms`}
               >
                 <Image
@@ -187,12 +184,10 @@ const metaDescription =
                     stroke-linejoin="round"
                     class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   >
-                    <>
-                      <circle cx="11" cy="11" r="8" />
-                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                      <line x1="11" y1="8" x2="11" y2="14" />
-                      <line x1="8" y1="11" x2="14" y2="11" />
-                    </>
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    <line x1="11" y1="8" x2="11" y2="14" />
+                    <line x1="8" y1="11" x2="14" y2="11" />
                   </svg>
                 </div>
               </div>
@@ -245,16 +240,13 @@ const metaDescription =
           secondFloorImages.map((img, i) => {
             const isLarge = spans[i]?.includes("md:col-span-2");
             const isVertical = spans[i]?.includes("row-span-2") && !isLarge;
-
             return (
               <div
-                class={`
-                ${spans[i] ?? "col-span-1"} 
-                ${isVertical ? "" : "aspect-3/2"} 
-                rounded-xl overflow-hidden cursor-pointer group relative photo-item border border-stone-100 shadow-sm
-              `}
+                class={`${spans[i] ?? "col-span-1"} ${isVertical ? "" : "aspect-3/2"} rounded-xl overflow-hidden cursor-pointer group relative photo-item border border-stone-100 shadow-sm`}
                 data-src={img.src.src}
                 data-alt={img.alt}
+                data-gallery="second"
+                data-index={i}
                 style={`animation-delay: ${i * 80}ms`}
               >
                 <Image
@@ -276,12 +268,10 @@ const metaDescription =
                     stroke-linejoin="round"
                     class="opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   >
-                    <>
-                      <circle cx="11" cy="11" r="8" />
-                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                      <line x1="11" y1="8" x2="11" y2="14" />
-                      <line x1="8" y1="11" x2="14" y2="11" />
-                    </>
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    <line x1="11" y1="8" x2="11" y2="14" />
+                    <line x1="8" y1="11" x2="14" y2="11" />
                   </svg>
                 </div>
               </div>
@@ -302,7 +292,7 @@ const metaDescription =
   >
     <button
       id="lightbox-close"
-      class="absolute top-6 right-6 text-stone-400 hover:text-brand-secondary transition-colors p-2 z-110"
+      class="absolute top-6 right-6 text-stone-400 hover:text-brand-secondary transition-colors p-2 z-110 cursor-pointer"
       aria-label="Close lightbox"
     >
       <svg
@@ -315,12 +305,10 @@ const metaDescription =
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
-        ><line x1="18" y1="6" x2="6" y2="18"></line><line
-          x1="6"
-          y1="6"
-          x2="18"
-          y2="18"></line></svg
       >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
     </button>
 
     <div class="relative max-w-5xl w-full flex flex-col items-center">
@@ -330,6 +318,46 @@ const metaDescription =
         alt=""
         class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-xl transition-all duration-300 scale-95 opacity-0"
       />
+
+      <button
+        id="lightbox-prev"
+        class="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer bg-white/80 hover:bg-white text-brand-secondary transition-all duration-200 p-2 rounded-full shadow-md z-10"
+        aria-label="Previous image"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <button
+        id="lightbox-next"
+        class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer bg-white/80 hover:bg-white text-brand-secondary transition-all duration-200 p-2 rounded-full shadow-md z-10"
+        aria-label="Next image"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
 
       <div
         class="absolute bottom-0 left-0 right-0 bg-white/70 backdrop-blur-sm py-4 rounded-b-lg"
@@ -374,11 +402,46 @@ const metaDescription =
   ) as HTMLImageElement;
   const lightboxCap = document.getElementById("lightbox-caption")!;
   const lightboxClose = document.getElementById("lightbox-close")!;
+  const lightboxPrev = document.getElementById("lightbox-prev")!;
+  const lightboxNext = document.getElementById("lightbox-next")!;
 
-  function openLightbox(src: string, alt: string) {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt;
-    lightboxCap.textContent = alt;
+  let currentGallery: HTMLElement[] = [];
+  let currentIndex = 0;
+
+  function getActiveItems(): HTMLElement[] {
+    const activePanel = document.querySelector<HTMLElement>(
+      ".tab-panel:not(.hidden)",
+    );
+    return Array.from(
+      activePanel?.querySelectorAll<HTMLElement>(".photo-item") ?? [],
+    );
+  }
+
+  function showImage(index: number) {
+    const item = currentGallery[index];
+    if (!item) return;
+
+    lightboxImg.classList.add("scale-95", "opacity-0");
+
+    setTimeout(() => {
+      lightboxImg.src = item.dataset.src!;
+      lightboxImg.alt = item.dataset.alt!;
+      lightboxCap.textContent = item.dataset.alt!;
+      lightboxImg.classList.remove("scale-95", "opacity-0");
+      lightboxImg.classList.add("scale-100", "opacity-100");
+    }, 150);
+
+    currentIndex = index;
+  }
+
+  function openLightbox(item: HTMLElement) {
+    currentGallery = getActiveItems();
+    currentIndex = currentGallery.indexOf(item);
+
+    lightboxImg.src = item.dataset.src!;
+    lightboxImg.alt = item.dataset.alt!;
+    lightboxCap.textContent = item.dataset.alt!;
+
     lightbox.classList.remove("hidden");
     lightbox.classList.add("flex");
 
@@ -386,6 +449,7 @@ const metaDescription =
       lightboxImg.classList.remove("scale-95", "opacity-0");
       lightboxImg.classList.add("scale-100", "opacity-100");
     }, 10);
+
     document.body.style.overflow = "hidden";
   }
 
@@ -400,16 +464,35 @@ const metaDescription =
 
   document.addEventListener("click", (e) => {
     const item = (e.target as Element).closest<HTMLElement>(".photo-item");
-    if (item) openLightbox(item.dataset.src!, item.dataset.alt!);
+    if (item) openLightbox(item);
   });
 
   lightboxClose.addEventListener("click", closeLightbox);
+
+  lightboxPrev.addEventListener("click", (e) => {
+    e.stopPropagation();
+    showImage(
+      (currentIndex - 1 + currentGallery.length) % currentGallery.length,
+    );
+  });
+
+  lightboxNext.addEventListener("click", (e) => {
+    e.stopPropagation();
+    showImage((currentIndex + 1) % currentGallery.length);
+  });
+
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft")
+      showImage(
+        (currentIndex - 1 + currentGallery.length) % currentGallery.length,
+      );
+    if (e.key === "ArrowRight")
+      showImage((currentIndex + 1) % currentGallery.length);
   });
 </script>
 

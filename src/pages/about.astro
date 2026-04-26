@@ -9,35 +9,35 @@ import Button from "../components/Button.astro";
 import CTA from "../components/CTA.astro";
 
 const firstFloorPricing = [
-  { period: "Apr 2025", rate: "$361/night" },
-  { period: "May 2025", rate: "$311/night" },
-  { period: "Jun 2025", rate: "$270/night" },
-  { period: "Jul 2025", rate: "$262/night" },
-  { period: "Aug 2025", rate: "$233/night" },
-  { period: "Sep 2025", rate: "$249/night" },
-  { period: "Oct 2025", rate: "$324/night" },
-  { period: "Nov 2025", rate: "$361/night" },
-  { period: "Dec 2025", rate: "$427/night" },
-  { period: "Jan 2026", rate: "$428/night" },
-  { period: "Feb 2026", rate: "$442/night" },
-  { period: "Mar 2026", rate: "$442/night" },
-  { period: "Apr 2026", rate: "$361/night" },
+  { period: "Jun 2026", rate: "$270/night" },
+  { period: "Jul 2026", rate: "$262/night" },
+  { period: "Aug 2026", rate: "$233/night" },
+  { period: "Sep 2026", rate: "$249/night" },
+  { period: "Oct 2026", rate: "$324/night" },
+  { period: "Nov 2026", rate: "$361/night" },
+  { period: "Dec 2026", rate: "$427/night" },
+  { period: "Jan 2027", rate: "$438/night" },
+  { period: "Feb 2027", rate: "$452/night" },
+  { period: "Mar 2027", rate: "$452/night" },
+  { period: "Apr 2027", rate: "$371/night" },
+  { period: "May 2027", rate: "$321/night" },
+  { period: "Jun 2027", rate: "$280/night" },
 ];
 
 const secondFloorPricing = [
-  { period: "Apr 2025", rate: "$330/night" },
-  { period: "May 2025", rate: "$285/night" },
-  { period: "Jun 2025", rate: "$248/night" },
-  { period: "Jul 2025", rate: "$240/night" },
-  { period: "Aug 2025", rate: "$214/night" },
-  { period: "Sep 2025", rate: "$231/night" },
-  { period: "Oct 2025", rate: "$300/night" },
-  { period: "Nov 2025", rate: "$335/night" },
-  { period: "Dec 2025", rate: "$404/night" },
-  { period: "Jan 2026", rate: "$391/night" },
-  { period: "Feb 2026", rate: "$404/night" },
-  { period: "Mar 2026", rate: "$393/night" },
-  { period: "Apr 2026", rate: "$330/night" },
+  { period: "Jun 2026", rate: "$248/night" },
+  { period: "Jul 2026", rate: "$240/night" },
+  { period: "Aug 2026", rate: "$214/night" },
+  { period: "Sep 2026", rate: "$231/night" },
+  { period: "Oct 2026", rate: "$300/night" },
+  { period: "Nov 2026", rate: "$335/night" },
+  { period: "Dec 2026", rate: "$404/night" },
+  { period: "Jan 2027", rate: "$401/night" },
+  { period: "Feb 2027", rate: "$414/night" },
+  { period: "Mar 2027", rate: "$403/night" },
+  { period: "Apr 2027", rate: "$340/night" },
+  { period: "May 2027", rate: "$295/night" },
+  { period: "Jun 2027", rate: "$258/night" },
 ];
 
 const amenityCategories = [
@@ -64,21 +64,21 @@ const amenityCategories = [
   {
     title: "Bed & Bath",
     items: [
-      { icon: "waves", label: "Bathtub & Hot Water" },
+      { icon: "waves", label: "Shower & Bathtub" },
       { icon: "bed-double", label: "Premium Linens & Pillows" },
+      { icon: "wind", label: "Hair Dryer & Hangers" },
       { icon: "shower-head", label: "Shampoo & Aromatherapy" },
       { icon: "sparkles", label: "Diffuser with Oils" },
-      { icon: "wind", label: "Hair Dryer & Hangers" },
     ],
   },
   {
-    title: "Outdoor & Logistics",
+    title: "Perks & Outdoors",
     items: [
-      { icon: "bike", label: "2 Bicycles Provided" },
-      { icon: "car", label: "Garage Parking Nearby" },
-      { icon: "sun", label: "Patio or Private Balcony" },
-      { icon: "package", label: "Luggage Drop-off Allowed" },
-      { icon: "lock", label: "Private Entrance" },
+      { icon: "bike", label: "2 Bicycles Per Unit" },
+      { icon: "car", label: "Parking Pass Provided" },
+      { icon: "sun", label: "1st Floor: Large Front Porch" },
+      { icon: "package", label: "2nd Floor: Private Balcony" },
+      { icon: "lock", label: "Backyard with seating & BBQ" },
     ],
   },
 ];
@@ -333,53 +333,6 @@ const metaDescription =
   </Section>
 
   <Section>
-    <SectionHeader title="Pricing" tagline="Rates">
-      <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
-        Pricing is for the entire unit regardless of number of guests. $1,000
-        security deposit per rental.<br />
-        5% Local Tax and 7.5% State Tax collected. No hidden costs or booking fees.<br
-        />
-        Please see our Availability page to view available dates for booking.
-      </p>
-    </SectionHeader>
-
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      {
-        [
-          { title: "1st Floor · 3 Bedroom", data: firstFloorPricing },
-          { title: "2nd Floor · 2 Bedroom", data: secondFloorPricing },
-        ].map((unit, idx) => (
-          <div
-            class="reveal-card bg-white rounded-xl shadow-md overflow-hidden opacity-0 translate-y-5 transition-all duration-700"
-            style={`transition-delay: ${idx * 150}ms`}
-          >
-            <div class="bg-brand-secondary text-white text-center py-6 px-4">
-              <p class="text-xs tracking-[0.3em] uppercase text-brand-primary mb-1">
-                Nightly Rate
-              </p>
-              <h3 class="font-headers text-xl">{unit.title}</h3>
-            </div>
-            <div class="divide-y divide-stone-100">
-              {unit.data.map((row) => (
-                <div class="flex items-center justify-between px-6 py-3 text-sm hover:bg-brand-primary/5 transition-colors">
-                  <span class="opacity-60">{row.period}</span>
-                  <span class="font-semibold">{row.rate}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))
-      }
-    </div>
-
-    <div class="text-center mt-12">
-      <Button href="/availability" variant="primary" size="md">
-        Check Availability
-      </Button>
-    </div>
-  </Section>
-
-  <Section background="light">
     <SectionHeader title="Amenities" tagline="What We Offer">
       <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
         Sweet Caroline Seaport offers you everything you need, and more, to have
@@ -469,6 +422,53 @@ const metaDescription =
           ))
         }
       </div>
+    </div>
+  </Section>
+
+  <Section background="light">
+    <SectionHeader title="Pricing" tagline="Rates">
+      <p class="text-sm leading-relaxed max-w-xl mx-auto opacity-70">
+        Pricing is for the entire unit regardless of number of guests. $1,000
+        security deposit per rental.<br />
+        5% Local Tax and 7.5% State Tax collected. No hidden costs or booking fees.<br
+        />
+        Please see our Availability page to view available dates for booking.
+      </p>
+    </SectionHeader>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {
+        [
+          { title: "1st Floor · 3 Bedroom", data: firstFloorPricing },
+          { title: "2nd Floor · 2 Bedroom", data: secondFloorPricing },
+        ].map((unit, idx) => (
+          <div
+            class="reveal-card bg-white rounded-xl shadow-md overflow-hidden opacity-0 translate-y-5 transition-all duration-700"
+            style={`transition-delay: ${idx * 150}ms`}
+          >
+            <div class="bg-brand-secondary text-white text-center py-6 px-4">
+              <p class="text-xs tracking-[0.3em] uppercase text-brand-primary mb-1">
+                Nightly Rate
+              </p>
+              <h3 class="font-headers text-xl">{unit.title}</h3>
+            </div>
+            <div class="divide-y divide-stone-100">
+              {unit.data.map((row) => (
+                <div class="flex items-center justify-between px-6 py-3 text-sm hover:bg-brand-primary/5 transition-colors">
+                  <span class="opacity-60">{row.period}</span>
+                  <span class="font-semibold">{row.rate}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="text-center mt-12">
+      <Button href="/availability" variant="primary" size="md">
+        Check Availability
+      </Button>
     </div>
   </Section>
 

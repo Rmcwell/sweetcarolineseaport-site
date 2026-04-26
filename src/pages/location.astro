@@ -4,7 +4,14 @@ import historicSeaport from "../assets/historicSeaport.webp";
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Section from "../components/UI/Section.astro";
+import CTA from "../components/CTA.astro";
 import SectionHeader from "../components/UI/SectionHeader.astro";
+
+const stats = [
+  { value: "500 ft", label: "To the Bight" },
+  { value: "2 Blocks", label: "To Duval St" },
+  { value: "0", label: "Cars Needed" },
+];
 
 const landmarks = [
   {
@@ -82,12 +89,11 @@ const metaDescription =
 
   <Section>
     <SectionHeader title="Key West, Florida" tagline="USA" />
-
     <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-      <div class="lg:col-span-5">
+      <div class="lg:col-span-5 order-last lg:order-first">
         <div class="relative group">
           <div
-            class="absolute -top-4 -right-4 w-24 h-24 bg-brand-secondary/5 rounded-full -z-10 group-hover:scale-110 transition-transform duration-700"
+            class="absolute -top-4 -left-4 w-24 h-24 bg-brand-secondary/5 rounded-full -z-10 group-hover:scale-110 transition-transform duration-700"
           >
           </div>
 
@@ -102,7 +108,7 @@ const metaDescription =
           </div>
 
           <div
-            class="absolute top-6 -left-6 bg-brand-secondary text-white px-6 py-3 rounded-lg shadow-xl"
+            class="absolute top-6 -right-6 bg-brand-secondary text-white px-6 py-3 rounded-lg shadow-xl"
           >
             <p class="text-xs font-bold uppercase tracking-widest">
               Historic Seaport District
@@ -110,69 +116,65 @@ const metaDescription =
           </div>
         </div>
       </div>
-      <div class="lg:col-span-7">
+
+      <div class="lg:col-span-7 order-first lg:order-last">
         <h3 class="font-heading text-3xl text-brand-secondary mb-6 italic">
           The Island's Best, Just Beyond Your Door.
         </h3>
 
         <div class="space-y-6 font-body text-stone-600 leading-relaxed text-lg">
           <p>
-            Our area of Caroline St has been completely redone with a new road
-            and all new landscaping, sidewalks, and extensive street lighting.
+            <strong class="text-brand-secondary">500 feet</strong> away, the Key West
+            Bight historic seaport puts world-class dining and nightlife right at
+            your doorstep! Grab happy hour at Schooner Wharf, feast on fresh catch
+            at Half Shell Raw Bar, indulge at A&B Lobster House, or grab a legendary
+            Cuban coffee at The Cuban Coffee Queen, and that's just the beginning.
           </p>
           <p>
-            <strong class="text-brand-secondary">500 feet</strong> away is the Key
-            West Bight historical seaport with many restaurants and bars—most with
-            happy hours: Schooners Wharf, Prime Steak House, Half Shell Raw Bar, Alonzo's,
-            A&B Lobster House, Bo's Fish Wagon, and Pepe's (The oldest restaurant
-            in Key West), The Cuban Coffee Queen and others.
+            Sunset cruises aboard America 2.0, Sebago, and Fury all depart from
+            the Bight, along with water sports charters for fishing, snorkeling,
+            scuba diving, and day trips to Dry Tortugas National Park.
           </p>
           <p>
-            Most of the sunset cruises leave from here: America 2.0, Sebago and
-            Fury. Water sports charters, including snorkeling and scuba diving,
-            depart from this bight as well.
+            <strong class="text-brand-secondary">Two blocks</strong> away, Duval Street
+            brings the energy! Sloppy Joe's, Irish Kevin's, Rick's, and The Bull are
+            all within easy reach.
           </p>
           <p>
-            <strong class="text-brand-secondary">Two blocks</strong> away is Duval
-            Street with famous bars such as Sloppy Joes, Irish Kevins, Ricks, and
-            The Bull.
+            Explore the best of the island just moments from your door.
+            Experience the world-famous sunset celebration at Mallory Square,
+            visit the historic Ernest Hemingway Home & Museum, or find the
+            Southernmost Point Buoy. From the crystal waters of Fort Zachary
+            Taylor State Park to the serene Key West Butterfly & Nature
+            Conservatory, the very best of Key West is yours to discover!
           </p>
           <p>
-            Sweet Caroline Seaport is within walking distance to the Key West
-            Express ferry terminal which travels round trip to Ft Myers and
-            Marco Island.
+            Sweet Caroline Seaport is within walking distance of the Key West
+            Express ferry terminal, with round-trip service to Fort Myers and
+            Marco Island. Also, right outside your front door, Key West Rides
+            makes it easy to explore the island at your own pace. Our stretch of
+            Caroline Street has been fully renovated with new pavement,
+            landscaping, sidewalks, and street lighting, so every step of the
+            journey starts beautifully.
           </p>
-        </div>
-
-        <div
-          class="grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-stone-100"
-        >
-          <div>
-            <p class="text-brand-secondary font-heading text-2xl font-bold">
-              500ft
-            </p>
-            <p class="text-xs uppercase tracking-widest text-stone-400">
-              To the Bight
-            </p>
-          </div>
-          <div>
-            <p class="text-brand-secondary font-heading text-2xl font-bold">
-              2 Blocks
-            </p>
-            <p class="text-xs uppercase tracking-widest text-stone-400">
-              To Duval St
-            </p>
-          </div>
-          <div>
-            <p class="text-brand-secondary font-heading text-2xl font-bold">
-              0
-            </p>
-            <p class="text-xs uppercase tracking-widest text-stone-400">
-              Cars Needed
-            </p>
-          </div>
         </div>
       </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 mt-12">
+      {
+        stats.map((stat) => (
+          <div class="relative text-center bg-brand-secondary rounded-2xl px-6 py-8 overflow-hidden">
+            <p class="relative text-brand-primary font-heading text-4xl font-bold mb-2">
+              {stat.value}
+            </p>
+            <div class="w-8 h-px bg-brand-accent mx-auto mb-2" />
+            <p class="relative text-xs uppercase tracking-widest text-white">
+              {stat.label}
+            </p>
+          </div>
+        ))
+      }
     </div>
   </Section>
 
@@ -248,6 +250,8 @@ const metaDescription =
       </div>
     </div>
   </Section>
+
+  <CTA />
 </Layout>
 
 <script>

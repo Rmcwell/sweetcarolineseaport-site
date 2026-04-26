@@ -5,162 +5,104 @@ const navLinks = [
   { name: "Availability", href: "/availability" },
   { name: "Photos", href: "/photos" },
   { name: "Location", href: "/location" },
-  { name: "Contact", href: "#contact" }
+  { name: "Contact", href: "#contact" },
 ];
-
-const pills = ["Tropical Destination", "Monthly Rental", "Fully Furnished"];
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer id="contact" class="bg-brand-secondary text-white pt-20 pb-10">
-  <div class="max-w-6xl mx-auto px-6 lg:px-10">
-    <div>
-      <div class="flex items-center gap-4 mb-5">
-        <span class="block h-px w-10 bg-brand-primary shrink-0"></span>
-        <span class="text-[9px] tracking-[0.35em] uppercase text-brand-primary">
-          Est. Key West, FL &nbsp;·&nbsp; 28 Night Minimum
-        </span>
-      </div>
-
-      <h2
-        class="text-white leading-tight tracking-tight text-3xl sm:text-4xl lg:text-5xl mb-3"
-      >
-        Sweet <em class="text-brand-primary">Caroline</em> Seaport
+<footer class="bg-brand-secondary text-white pt-12 pb-6">
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div class="space-y-4">
+      <h2 class="text-2xl font-serif tracking-wide text-brand-primary">
+        Sweet Caroline Seaport
       </h2>
-
-      <p class="italic text-white/40 text-base leading-relaxed max-w-md">
-        "Historic charm meets modern luxury at the heart of the Seaport
-        district."
+      <p class="text-sm leading-relaxed text-slate-300 max-w-xs">
+        Experience the historic charm of the Seaport District. Luxury residences
+        tailored for extended stays of 28 nights or more.
       </p>
+    </div>
 
-      <ul class="flex flex-wrap gap-2 mt-6 list-none p-0 m-0">
+    <div class="md:justify-self-center">
+      <h3
+        class="text-sm uppercase tracking-widest font-bold mb-4 text-brand-primary"
+      >
+        Navigation
+      </h3>
+      <ul class="space-y-2 text-sm">
         {
-          pills.map((p) => (
-            <li class="border border-white/12 rounded-sm px-2.5 py-1 text-[10px] tracking-[0.15em] uppercase text-white/35">
-              {p}
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="hover:text-brand-accent transition-colors"
+              >
+                {link.name}
+              </a>
             </li>
           ))
         }
       </ul>
     </div>
 
-    <div
-      class="grid grid-cols-1 sm:grid-cols-3 gap-y-12 border-t border-white/8 mt-14 pt-14"
-    >
-      <div class="sm:pr-12 text-center">
-        <span
-          class="block text-[9px] tracking-[0.35em] uppercase text-white/25 mb-7"
-          >Minimum Stay</span
-        >
-        <div
-          class="border border-brand-primary/20 rounded bg-brand-primary/4 p-6 text-center"
-        >
-          <p class="text-brand-primary text-6xl leading-none mb-1 m-0">28</p>
-          <p
-            class="text-[9px] tracking-[0.3em] uppercase text-white/30 mb-5 mt-1"
+    <div class="space-y-4">
+      <h3
+        class="text-sm uppercase tracking-widest font-bold text-brand-primary"
+      >
+        Get In Touch
+      </h3>
+      <div class="text-sm space-y-3">
+        <p class="flex items-center gap-2">
+          <svg
+            class="w-4 h-4 shrink-0 text-brand-accent"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            Night Minimum
-          </p>
-          <a
-            href="/availability"
-            class="block w-full py-2.5 bg-brand-primary text-brand-secondary text-[10px] tracking-[0.25em] uppercase rounded-sm no-underline transition-opacity duration-200 hover:opacity-85"
-          >
-            Check Availability
-          </a>
-        </div>
-      </div>
-
-      <div class="sm:border-l sm:border-white/[0.07] text-center">
-        <span
-          class="block text-[9px] tracking-[0.35em] uppercase text-white/25 mb-7"
-          >Explore</span
-        >
-        <ul class="flex flex-col gap-3.5 list-none p-0 m-0">
-          {
-            navLinks.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="text-white/55 text-sm tracking-[0.01em] no-underline transition-colors duration-200 hover:text-brand-primary"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-
-      <div class="sm:border-l sm:border-white/[0.07] sm:pl-12 text-center">
-        <span
-          class="block text-[9px] tracking-[0.35em] uppercase text-white/25 mb-7"
-          >Inquiries</span
-        >
-
-        <div class="mb-7">
-          <p
-            class="text-[9px] tracking-[0.3em] uppercase text-white/25 mb-1.5 m-0"
-          >
-            Email
-          </p>
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
           <a
             href="mailto:info@sweetcarolineseaport.com"
-            class="text-[13px] text-white/75 no-underline leading-relaxed block transition-colors duration-200 hover:text-brand-primary"
+            class="hover:underline hover:text-brand-accent"
           >
             info@sweetcarolineseaport.com
           </a>
-        </div>
-
-        <div class="mb-7">
-          <p
-            class="text-[9px] tracking-[0.3em] uppercase text-white/25 mb-1.5 m-0"
+        </p>
+        <p class="flex items-start gap-2 text-slate-300">
+          <svg
+            class="w-4 h-4 shrink-0 mt-0.5 text-brand-accent"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            Phone
-          </p>
-          <a
-            href="tel:+13055551234"
-            class="text-[15px] text-white/75 no-underline block transition-colors duration-200 hover:text-brand-primary"
-          >
-            (305) 555-1234
-          </a>
-        </div>
-
-        <div>
-          <p
-            class="text-[9px] tracking-[0.3em] uppercase text-white/25 mb-1.5 m-0"
-          >
-            Address
-          </p>
-          <p class="text-[13px] text-white/75 leading-relaxed m-0">
-            724 Caroline St.<br />
-            Key West, FL 33040
-          </p>
-        </div>
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>724 Caroline St.<br />Key West, FL 33040</span>
+        </p>
       </div>
     </div>
+  </div>
 
+  <div class="mt-12 pt-6 border-t border-white/10">
     <div
-      class="border-t border-white/[0.07] mt-16 pt-7 flex flex-col sm:flex-row justify-between items-center gap-6"
+      class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 gap-4"
     >
-      <p
-        class="text-[11px] tracking-[0.25em] uppercase text-white/20 m-0 text-center sm:text-left"
-      >
-        &copy; {currentYear} Sweet Caroline Seaport
-      </p>
+      <p>&copy; 2026 Sweet Caroline Seaport. All rights reserved.</p>
       <div class="flex gap-6">
-        <a
-          href="/terms"
-          class="text-[11px] tracking-[0.2em] uppercase text-white/20 no-underline transition-colors duration-200 hover:text-white/50"
+        <a href="/terms" class="hover:text-white transition-colors"
+          >Terms of Service</a
         >
-          Terms
-        </a>
-        <a
-          href="/privacy"
-          class="text-[11px] tracking-[0.2em] uppercase text-white/20 no-underline transition-colors duration-200 hover:text-white/50"
+        <a href="/privacy" class="hover:text-white transition-colors"
+          >Privacy Policy</a
         >
-          Privacy
-        </a>
       </div>
     </div>
   </div>
